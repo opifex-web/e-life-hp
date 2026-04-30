@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="株式会社イーライフ［リースキン師勝中央店］のデモ用ホームページです。" />
+  <title>株式会社イーライフ｜リースキン師勝中央店</title>
+  <style>
+    :root {
+      --green: #00a86b;
+      --green-dark: #007f52;
+      --green-soft: #e9f8f2;
+      --blue: #0b5cad;
+      --blue-dark: #073f7a;
+      --yellow: #ffd166;
+      --orange: #ff9f1c;
+      --navy: #12324a;
+      --text: #24333b;
+      --muted: #6a7a83;
+      --line: #dce8e3;
+      --bg: #f6fbf8;
+      --white: #ffffff;
+      --shadow: 0 16px 40px rgba(18, 50, 74, 0.12);
+      --shadow-soft: 0 10px 28px rgba(18, 50, 74, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max-width: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", sans-serif; color: var(--text); line-height: 1.8; background: var(--white); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    .container { width: min(100% - 32px, var(--max-width)); margin-inline: auto; }
+    .section { padding: 86px 0; }
+    .section-head { text-align: center; margin-bottom: 42px; }
+    .section-kicker { display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: var(--green-dark); font-size: 13px; font-weight: 900; letter-spacing: 0.1em; margin-bottom: 8px; text-transform: uppercase; }
+    .section-kicker::before, .section-kicker::after { content: ""; width: 28px; height: 2px; border-radius: 999px; background: var(--green); }
+    .section-title { color: var(--navy); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.35; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .section-desc { color: var(--muted); max-width: 760px; margin-inline: auto; font-size: 16px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 12px 24px; border-radius: 999px; font-weight: 900; line-height: 1.4; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease; cursor: pointer; border: 0; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--green), #39c98f); color: var(--white); box-shadow: 0 12px 26px rgba(0, 168, 107, 0.28); }
+    .btn-secondary { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: #3b2a00; box-shadow: 0 12px 26px rgba(255, 159, 28, 0.28); }
+    .btn-outline { background: var(--white); color: var(--green-dark); border: 2px solid var(--green); }
+    .label { display: inline-flex; align-items: center; justify-content: center; padding: 5px 12px; border-radius: 999px; background: var(--green-soft); color: var(--green-dark); font-size: 12px; font-weight: 900; line-height: 1.4; }
+    .top-info { background: var(--navy); color: var(--white); font-size: 13px; }
+    .top-info-inner { width: min(100% - 32px, var(--max-width)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 0; }
+    .top-info strong { color: var(--yellow); }
+    .top-info-links { display: flex; align-items: center; gap: 18px; color: rgba(255,255,255,.86); white-space: nowrap; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 32px, var(--max-width)); min-height: 80px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 900; white-space: nowrap; }
+    .logo-mark { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 16px; color: var(--white); background: radial-gradient(circle at 35% 28%, rgba(255,255,255,.42), transparent 28%), linear-gradient(135deg, var(--green), var(--blue)); box-shadow: 0 10px 24px rgba(0,168,107,.28); font-size: 23px; flex: 0 0 auto; }
+    .logo-main { display: block; font-size: 20px; line-height: 1.2; letter-spacing: .02em; }
+    .logo-sub { display: block; margin-top: 4px; font-size: 11px; line-height: 1.2; color: var(--muted); font-weight: 800; }
+    .global-nav { display: flex; align-items: center; gap: 22px; color: var(--navy); font-size: 14px; font-weight: 900; }
+    .global-nav a { position: relative; padding: 4px 0; }
+    .global-nav a::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 0; height: 3px; border-radius: 999px; background: var(--green); transition: width .22s ease; }
+    .global-nav a:hover::after { width: 100%; }
+    .header-contact { display: flex; align-items: center; gap: 12px; }
+    .header-tel { color: var(--navy); line-height: 1.25; text-align: right; font-weight: 900; white-space: nowrap; }
+    .header-tel small { display: block; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .menu-check { display: none; }
+    .menu-button { display: none; width: 46px; height: 46px; place-items: center; border: 1px solid var(--line); border-radius: 14px; background: var(--white); cursor: pointer; }
+    .menu-button span { position: relative; display: block; width: 22px; height: 2px; border-radius: 999px; background: var(--navy); }
+    .menu-button span::before, .menu-button span::after { content: ""; position: absolute; left: 0; width: 22px; height: 2px; border-radius: 999px; background: var(--navy); }
+    .menu-button span::before { top: -7px; } .menu-button span::after { top: 7px; }
+    .hero { position: relative; overflow: hidden; background: radial-gradient(circle at 12% 10%, rgba(0,168,107,.18), transparent 30%), radial-gradient(circle at 86% 18%, rgba(255,209,102,.26), transparent 30%), linear-gradient(180deg,#f2fbf7 0%,#fff 100%); }
+    .hero::before { content: ""; position: absolute; inset: auto -120px -180px auto; width: 520px; height: 520px; border-radius: 50%; background: rgba(11,92,173,.08); }
+    .hero-inner { width: min(100% - 32px, var(--max-width)); margin-inline: auto; display: grid; grid-template-columns: 1.06fr .94fr; align-items: center; gap: 48px; padding: 76px 0 62px; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.9); color: var(--green-dark); font-size: 14px; font-weight: 900; box-shadow: var(--shadow-soft); margin-bottom: 18px; }
+    .hero-title { color: var(--navy); font-size: clamp(36px, 5.1vw, 62px); line-height: 1.18; letter-spacing: -.06em; margin-bottom: 20px; }
+    .hero-title span { color: var(--green-dark); background: linear-gradient(transparent 62%, rgba(255,209,102,.55) 62%); }
+    .hero-lead { max-width: 600px; color: #40525c; font-size: 18px; margin-bottom: 28px; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+    .hero-trust { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 640px; }
+    .hero-trust-item { padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 8px 22px rgba(18,50,74,.06); color: var(--muted); font-size: 13px; }
+    .hero-trust-item strong { display: block; color: var(--navy); font-size: 17px; line-height: 1.35; margin-bottom: 2px; }
+    .hero-visual { position: relative; min-height: 540px; }
+    .hero-visual-card { position: absolute; inset: 30px 0 26px 34px; overflow: hidden; border: 10px solid var(--white); border-radius: 36px; background: linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,255,255,.22)), linear-gradient(135deg, #c9f4df, #d7ecff 54%, #fff1bf); box-shadow: var(--shadow); }
+    .hero-visual-card::before { content: ""; position: absolute; left: 9%; top: 10%; width: 82%; height: 68%; border-radius: 30px; background: linear-gradient(90deg, rgba(255,255,255,.7) 0 2px, transparent 2px 48px), linear-gradient(180deg, rgba(255,255,255,.6) 0 2px, transparent 2px 48px), rgba(255,255,255,.26); background-size: 48px 48px; border: 1px solid rgba(255,255,255,.62); }
+    .cleaning-figure { position: absolute; left: 50%; top: 53%; width: 74%; aspect-ratio: 1/1; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle at 50% 23%, #ffd8b4 0 7%, transparent 7.4%), radial-gradient(circle at 50% 21%, var(--navy) 0 11%, transparent 11.5%), radial-gradient(circle at 50% 55%, var(--green) 0 24%, transparent 24.6%); }
+    .cleaning-figure::before { content: ""; position: absolute; left: 8%; top: 56%; width: 88%; height: 17px; border-radius: 999px; background: var(--navy); transform: rotate(-19deg); }
+    .cleaning-figure::after { content: ""; position: absolute; right: 4%; bottom: 16%; width: 32%; height: 78px; border-radius: 16px 16px 52px 52px; background: linear-gradient(90deg, rgba(255,255,255,.34), transparent 34%), linear-gradient(180deg, var(--yellow), var(--orange)); transform: rotate(-19deg); box-shadow: 0 10px 18px rgba(18,50,74,.18); }
+    .hero-float { position: absolute; z-index: 2; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); box-shadow: var(--shadow); }
+    .hero-float strong { display: block; color: var(--navy); font-size: 20px; line-height: 1.35; }
+    .hero-float small { display: block; color: var(--muted); font-weight: 800; line-height: 1.5; margin-top: 3px; }
+    .hero-float-01 { left: 0; top: 74px; } .hero-float-02 { right: 0; bottom: 58px; }
+    .hero-sparkle { position: absolute; right: 34px; top: 8px; z-index: 2; width: 66px; height: 66px; display: grid; place-items: center; border-radius: 22px; background: var(--yellow); color: var(--navy); font-size: 31px; box-shadow: 0 14px 28px rgba(255,209,102,.36); }
+    .oni-card { position: absolute; left: 16px; bottom: 18px; z-index: 3; width: 188px; padding: 14px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.96); box-shadow: var(--shadow); text-align: center; }
+    .oni-card .label { margin-bottom: 10px; }
+    .oni-img { width: 120px; height: 120px; object-fit: contain; border-radius: 999px; margin-inline: auto; }
+    .oni-card p { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; font-weight: 700; text-align: left; }
+    .service-nav { padding: 28px 0; background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .service-nav-grid { width: min(100% - 32px, var(--max-width)); margin-inline: auto; display: grid; grid-template-columns: repeat(6,1fr); gap: 12px; }
+    .service-nav-item { display: grid; place-items: center; gap: 6px; min-height: 124px; padding: 16px 10px; border: 1px solid var(--line); border-radius: 18px; background: #f8fcfa; color: var(--navy); text-align: center; font-weight: 900; }
+    .service-nav-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 16px; background: var(--green-soft); color: var(--green-dark); font-size: 24px; }
+    .service-nav-item small { display: block; color: var(--muted); font-size: 12px; font-weight: 800; line-height: 1.4; }
+    .worries, .reasons, .works, .faq { background: var(--white); }
+    .services, .comparison, .company { background: var(--bg); }
+    .worry-grid, .service-grid, .works-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .worry-card, .service-card, .work-card, .flow-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-soft); }
+    .worry-card { position: relative; padding: 30px 24px; background: linear-gradient(180deg,#fff,#f8fcfa); }
+    .worry-icon, .flow-icon { width: 62px; height: 62px; display: grid; place-items: center; border-radius: 20px; background: var(--green-soft); color: var(--green-dark); font-size: 28px; margin-bottom: 18px; }
+    .worry-card h3, .service-body h3, .work-body h3, .flow-card h3, .reason-item h3 { color: var(--navy); line-height: 1.45; margin-bottom: 8px; }
+    .worry-card p, .service-body p, .work-body p, .flow-card p, .reason-item p { color: var(--muted); font-size: 15px; }
+    .service-card { transition: transform .2s ease, box-shadow .2s ease; } .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .service-thumb { position: relative; height: 188px; overflow: hidden; background: radial-gradient(circle at 28% 24%, rgba(255,255,255,.75), transparent 26%), linear-gradient(135deg,#d7f5e9,#d8ecff); }
+    .service-thumb::before { content: ""; position: absolute; inset: 22px; border-radius: 26px; background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.34)), repeating-linear-gradient(45deg, rgba(0,168,107,.16) 0 8px, transparent 8px 16px); border: 1px solid rgba(255,255,255,.82); }
+    .service-thumb::after { position: absolute; right: 22px; bottom: 16px; font-size: 58px; line-height: 1; filter: drop-shadow(0 8px 12px rgba(18,50,74,.12)); }
+    .thumb-mat::after{content:"🟩"}.thumb-office::after{content:"🏢"}.thumb-house::after{content:"🏠"}.thumb-aircon::after{content:"❄️"}.thumb-water::after{content:"🚿"}.thumb-special::after{content:"✨"}
+    .service-body, .work-body { padding: 24px; }
+    .service-list { display: grid; gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); color: #40525c; font-size: 14px; }
+    .service-list li { display: flex; gap: 8px; align-items: flex-start; }
+    .service-list li::before { content: "✓"; color: var(--green-dark); font-weight: 900; flex: 0 0 auto; }
+    .reason-layout, .company-layout, .contact-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: 34px; align-items: center; }
+    .reason-visual { position: relative; min-height: 520px; overflow: hidden; border: 10px solid var(--white); border-radius: 36px; background: linear-gradient(135deg, rgba(0,168,107,.16), rgba(11,92,173,.12)), linear-gradient(135deg,#e7fff3,#eef7ff 56%,#fff3cb); box-shadow: var(--shadow); }
+    .reason-visual::before { content: "E-LIFE"; position: absolute; left: 30px; bottom: 26px; color: rgba(18,50,74,.1); font-size: 64px; font-weight: 900; letter-spacing: .04em; }
+    .reason-visual::after { content: "🧹"; position: absolute; right: 34px; top: 58px; font-size: 136px; filter: drop-shadow(0 14px 20px rgba(18,50,74,.14)); }
+    .reason-mini-card { position: absolute; left: 28px; top: 34px; max-width: 260px; padding: 20px; border: 1px solid rgba(255,255,255,.7); border-radius: 22px; background: rgba(255,255,255,.82); box-shadow: var(--shadow-soft); }
+    .reason-mini-card strong { display: block; color: var(--green-dark); font-size: 28px; line-height: 1.2; margin-bottom: 6px; }
+    .reason-list { display: grid; gap: 18px; }
+    .reason-item { display: grid; grid-template-columns: 68px 1fr; gap: 18px; align-items: flex-start; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); box-shadow: var(--shadow-soft); }
+    .reason-number { width: 68px; height: 68px; display: grid; place-items: center; border-radius: 22px; color: var(--white); background: linear-gradient(135deg, var(--green), var(--blue)); font-size: 20px; font-weight: 900; }
+    .comparison-box, .company-table { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-soft); }
+    .comparison-table { width: 100%; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td { padding: 18px 20px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .comparison-table th { width: 28%; background: #f1faf6; color: var(--navy); font-weight: 900; }
+    .comparison-table td { color: #40525c; }
+    .highlight { color: var(--green-dark); font-weight: 900; }
+    .work-image { position: relative; height: 170px; background: linear-gradient(135deg, rgba(0,168,107,.22), rgba(11,92,173,.14)), linear-gradient(135deg,#fff,#eaf8f1); overflow: hidden; }
+    .work-image::before { content: ""; position: absolute; left: 24px; top: 26px; width: 62%; height: 60%; border-radius: 20px; border: 1px solid rgba(255,255,255,.8); background: linear-gradient(90deg, rgba(255,255,255,.75) 0 2px, transparent 2px 36px), linear-gradient(180deg, rgba(255,255,255,.75) 0 2px, transparent 2px 36px), rgba(255,255,255,.32); background-size: 36px 36px; }
+    .work-image::after { position: absolute; right: 24px; bottom: 18px; font-size: 54px; filter: drop-shadow(0 8px 10px rgba(18,50,74,.12)); }
+    .work-01::after{content:"🏬"}.work-02::after{content:"🍳"}.work-03::after{content:"❄️"}
+    .flow { background: radial-gradient(circle at top left, rgba(0,168,107,.12), transparent 28%), linear-gradient(180deg,#f6fbf8,#fff); }
+    .flow-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; counter-reset: flow; }
+    .flow-card { position: relative; padding: 26px 20px; }
+    .flow-card::before { counter-increment: flow; content: "STEP " counter(flow); display: inline-flex; align-items: center; justify-content: center; padding: 4px 11px; border-radius: 999px; background: var(--green); color: var(--white); font-size: 12px; font-weight: 900; margin-bottom: 14px; }
+    .company-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: radial-gradient(circle at top right, rgba(255,209,102,.28), transparent 30%), linear-gradient(135deg, var(--green-dark), var(--blue-dark)); color: var(--white); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .company-card h3 { position: relative; z-index:1; font-size: 28px; line-height: 1.4; margin-bottom: 12px; }
+    .company-card p, .company-contact-list li { position: relative; z-index:1; color: rgba(255,255,255,.86); font-weight: 800; }
+    .company-contact-list { display: grid; gap: 12px; }
+    .company-row { display: grid; grid-template-columns: 160px 1fr; border-bottom: 1px solid var(--line); }
+    .company-row dt, .company-row dd { padding: 18px 20px; }
+    .company-row dt { background:#f1faf6; color: var(--navy); font-weight: 900; }
+    .company-row dd { color:#40525c; }
+    .faq-list { display: grid; gap:14px; max-width:900px; margin-inline:auto; }
+    details { overflow:hidden; border:1px solid var(--line); border-radius:18px; background:var(--white); box-shadow:0 8px 22px rgba(18,50,74,.05); }
+    summary { position:relative; list-style:none; cursor:pointer; padding:20px 58px 20px 22px; color:var(--navy); font-weight:900; }
+    summary::-webkit-details-marker{display:none}
+    summary::before{content:"Q";display:inline-grid;place-items:center;width:30px;height:30px;margin-right:10px;border-radius:10px;background:var(--green-soft);color:var(--green-dark);font-weight:900;}
+    summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:30px;height:30px;border-radius:999px;background:#f1faf6;color:var(--green-dark);font-size:22px;}
+    details[open] summary::after{content:"−"}
+    details p{padding:0 24px 22px 66px;color:var(--muted);font-size:15px;}
+    .contact { position: relative; overflow:hidden; padding:82px 0; background:radial-gradient(circle at 14% 12%,rgba(255,255,255,.22),transparent 28%),linear-gradient(135deg,var(--green-dark),var(--blue-dark)); color:var(--white); }
+    .contact h2{font-size:clamp(28px,3.5vw,44px);line-height:1.35;letter-spacing:-.03em;margin-bottom:14px}.contact p{color:rgba(255,255,255,.88);margin-bottom:26px}.contact-actions{display:flex;flex-wrap:wrap;gap:14px}.contact .btn-outline{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);color:var(--white)}.contact-panel{padding:28px;border:1px solid rgba(255,255,255,.32);border-radius:var(--radius-lg);background:rgba(255,255,255,.14);backdrop-filter:blur(9px)}.contact-panel h3{font-size:22px;line-height:1.45;margin-bottom:14px}.contact-panel-list{display:grid;gap:12px;margin-bottom:22px}.contact-note{padding:16px;border-radius:16px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.88);font-size:14px}
+    .footer { background: var(--navy); color: var(--white); padding: 56px 0 24px; }
+    .footer-grid { display:grid; grid-template-columns:1.25fr repeat(3,1fr); gap:30px; margin-bottom:36px; }
+    .footer-brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:900;margin-bottom:14px}.footer-oni{width:74px;height:74px;object-fit:contain;border-radius:999px;background:var(--white);padding:4px;margin:16px 0 10px}.footer p{color:rgba(255,255,255,.72);font-size:14px}.footer h3{color:var(--yellow);font-size:15px;line-height:1.45;margin-bottom:12px}.footer-links{display:grid;gap:8px;color:rgba(255,255,255,.78);font-size:14px}.footer-internal-btn{margin-top:18px;min-height:46px;padding:10px 20px;color:var(--white);background:linear-gradient(135deg,#ff8f3d,#ffd166);border:0;box-shadow:0 10px 24px rgba(255,159,28,.24)}.footer-copy{padding-top:20px;border-top:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.62);text-align:center;font-size:12px}.fixed-sp-cta{display:none}
+    @media (max-width:1080px){.global-nav{gap:14px}.header-tel{display:none}.service-nav-grid{grid-template-columns:repeat(3,1fr)}.service-grid,.worry-grid,.works-grid{grid-template-columns:repeat(2,1fr)}.flow-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:860px){.top-info{display:none}.header-inner{min-height:68px}.menu-button{display:grid}.header-contact{display:none}.global-nav{position:fixed;left:0;right:0;top:68px;display:grid;gap:0;padding:8px 16px 18px;border-bottom:1px solid var(--line);background:var(--white);box-shadow:var(--shadow);transform:translateY(-130%);transition:transform .24s ease}.global-nav a{padding:14px 4px;border-bottom:1px solid var(--line)}.global-nav a::after{display:none}.menu-check:checked~.global-nav{transform:translateY(0)}.hero-inner{grid-template-columns:1fr;padding:50px 0 44px}.hero-visual{min-height:460px}.hero-visual-card{inset:20px 8px 20px 8px}.hero-float-01{left:0;top:36px}.hero-float-02{right:0;bottom:30px}.hero-sparkle{right:24px;top:0}.oni-card{left:12px;bottom:12px;width:170px}.section{padding:66px 0}.reason-layout,.company-layout,.contact-layout,.footer-grid{grid-template-columns:1fr}.reason-visual{min-height:340px}.fixed-sp-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}.fixed-sp-cta .btn{min-height:46px;padding:10px 8px;border-radius:14px;font-size:13px}body{padding-bottom:78px}}
+    @media (max-width:620px){.container,.header-inner,.hero-inner,.service-nav-grid,.top-info-inner{width:min(100% - 24px,var(--max-width))}.logo-main{font-size:16px}.logo-sub{font-size:10px}.logo-mark{width:42px;height:42px}.hero-title{font-size:36px}.hero-lead{font-size:16px}.hero-actions,.contact-actions{display:grid}.btn{width:100%}.hero-trust,.service-nav-grid,.service-grid,.worry-grid,.works-grid,.flow-grid{grid-template-columns:1fr}.service-nav-item{min-height:auto;grid-template-columns:48px 1fr;justify-items:start;text-align:left;padding:14px}.service-nav-item small{grid-column:2}.hero-float{padding:14px}.hero-float strong{font-size:17px}.oni-card{width:156px;padding:12px}.oni-img{width:100px;height:100px}.reason-item{grid-template-columns:1fr}.reason-number{width:58px;height:58px;border-radius:18px}.comparison-box{overflow-x:auto}.comparison-table{min-width:640px}.company-row{grid-template-columns:1fr}.company-row dt{padding-bottom:8px}.company-row dd{padding-top:8px}summary{padding-right:50px}details p{padding-left:24px}}
+  </style>
+</head>
+<body>
+  <div class="top-info"><div class="top-info-inner"><p><strong>北名古屋市の清掃サービス</strong>｜マット・モップのリースから建物・店舗・住居の清掃まで</p><div class="top-info-links"><a href="#services">サービス</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></div></div></div>
+  <header class="site-header"><div class="header-inner"><a class="logo" href="#top"><span class="logo-mark">E</span><span><span class="logo-main">株式会社イーライフ</span><span class="logo-sub">リースキン師勝中央店</span></span></a><input class="menu-check" type="checkbox" id="menu-check"/><label class="menu-button" for="menu-check"><span></span></label><nav class="global-nav"><a href="#worries">お悩み</a><a href="#services">サービス</a><a href="#reasons">選ばれる理由</a><a href="#works">対応例</a><a href="#flow">流れ</a><a href="#company">会社概要</a><a href="#faq">FAQ</a></nav><div class="header-contact"><div class="header-tel"><small>お電話でのお問い合わせ</small>0568-25-7071</div><a class="btn btn-primary" href="#contact">無料相談</a></div></div></header>
+  <main id="top">
+    <section class="hero"><div class="hero-inner"><div class="hero-copy"><div class="hero-badge">🧹 建物・店舗・住居・特殊清掃まで対応</div><h1 class="hero-title">清掃用品のリースから、<br>プロの清掃まで<br><span>きれいを支える。</span></h1><p class="hero-lead">株式会社イーライフ［リースキン師勝中央店］は、北名古屋市を拠点に、マット・モップ・清掃用具のリース、店舗・オフィス・住居の清掃、エアコン清掃や水まわり清掃まで幅広く対応します。</p><div class="hero-actions"><a class="btn btn-secondary" href="tel:0568257071">電話で相談する</a><a class="btn btn-outline" href="#services">サービスを見る</a></div><div class="hero-trust"><div class="hero-trust-item"><strong>地域密着</strong>北名古屋市を拠点に対応</div><div class="hero-trust-item"><strong>法人・個人対応</strong>店舗・事務所・住居まで</div><div class="hero-trust-item"><strong>清掃用品も対応</strong>マット・モップ等のリース</div></div></div><div class="hero-visual"><div class="hero-sparkle">✨</div><div class="hero-visual-card"><div class="cleaning-figure"></div></div><div class="hero-float hero-float-01"><strong>清掃用品リース</strong><small>マット・モップ・衛生用品</small></div><div class="hero-float hero-float-02"><strong>プロ清掃対応</strong><small>店舗・住宅・特殊清掃まで</small></div><div class="oni-card"><span class="label">イーライフキャラクター</span><img src="/mnt/data/image(2).png" alt="株式会社イーライフの鬼キャラクター" class="oni-img"><p>親しみやすく、相談しやすい清掃サービスの印象を伝えるキャラクターです。</p></div></div></div></section>
+    <div class="service-nav"><div class="service-nav-grid"><a class="service-nav-item" href="#services"><span class="service-nav-icon">🟩</span>マット・モップ<small>清掃用具リース</small></a><a class="service-nav-item" href="#services"><span class="service-nav-icon">🏢</span>店舗・事務所<small>定期清掃・衛生管理</small></a><a class="service-nav-item" href="#services"><span class="service-nav-icon">🏠</span>住居清掃<small>ハウスクリーニング</small></a><a class="service-nav-item" href="#services"><span class="service-nav-icon">❄️</span>エアコン<small>清掃・メンテナンス</small></a><a class="service-nav-item" href="#services"><span class="service-nav-icon">🚿</span>水まわり<small>厨房・浴室・トイレ</small></a><a class="service-nav-item" href="#services"><span class="service-nav-icon">✨</span>特殊清掃<small>通常清掃で難しい汚れ</small></a></div></div>
+    <section class="section worries" id="worries"><div class="container"><div class="section-head"><span class="section-kicker">Worries</span><h2 class="section-title">こんなお困りごとはありませんか？</h2><p class="section-desc">オフィス・店舗・住居の「きれい」を維持するには、日々の清掃だけでなく、用具の管理や定期的なプロ清掃が大切です。</p></div><div class="worry-grid"><article class="worry-card"><div class="worry-icon">🧼</div><h3>清掃用具の管理に手間がかかる</h3><p>マットやモップを自社で購入・洗浄・交換するのは意外と負担です。リースなら清潔な状態を保ちやすく、管理の手間を軽減できます。</p></article><article class="worry-card"><div class="worry-icon">🏬</div><h3>店舗や事務所の印象を良くしたい</h3><p>入口・床・トイレ・照明まわりなどは、お客様や従業員の印象に直結します。定期的な清掃で清潔感のある空間づくりを支えます。</p></article><article class="worry-card"><div class="worry-icon">🧽</div><h3>普段の掃除では落ちない汚れがある</h3><p>厨房の油汚れ、カーペットの汚れ、水まわりの黒ずみ、エアコン内部など、専用の道具と技術が必要な清掃にも対応します。</p></article></div></div></section>
+    <section class="section services" id="services"><div class="container"><div class="section-head"><span class="section-kicker">Service</span><h2 class="section-title">イーライフの提供サービス</h2><p class="section-desc">清掃用具のリースから、建物・店舗・住居・特殊清掃まで。お客様の環境に合わせて、必要な清掃サービスを組み合わせてご提案します。</p></div><div class="service-grid"><article class="service-card"><div class="service-thumb thumb-mat"></div><div class="service-body"><span class="label">清掃用品</span><h3>マット・モップ・清掃用具リース</h3><p>オフィスや店舗の入口・床まわりを清潔に保つためのマット、モップ、清掃用具をご提案します。</p><ul class="service-list"><li>玄関マット・フロアマット</li><li>モップ・清掃道具のリース</li><li>衛生的な交換・管理をサポート</li></ul></div></article><article class="service-card"><div class="service-thumb thumb-office"></div><div class="service-body"><span class="label">法人向け</span><h3>店舗・オフィス清掃</h3><p>事務所、店舗、施設の床・トイレ・照明・共用部などを清掃し、快適な事業環境を整えます。</p><ul class="service-list"><li>床清掃・ワックス対応</li><li>トイレ・洗面まわり清掃</li><li>照明・共用部の清掃</li></ul></div></article><article class="service-card"><div class="service-thumb thumb-house"></div><div class="service-body"><span class="label">個人向け</span><h3>住居・ハウスクリーニング</h3><p>ご家庭の気になる汚れをプロの手で丁寧に清掃。普段のお掃除では届きにくい場所もお任せください。</p><ul class="service-list"><li>キッチン・浴室・トイレ</li><li>窓・サッシ・床まわり</li><li>入退去前後の清掃相談</li></ul></div></article><article class="service-card"><div class="service-thumb thumb-aircon"></div><div class="service-body"><span class="label">快適空間</span><h3>エアコン清掃・メンテナンス</h3><p>エアコン内部のホコリや汚れ、ニオイの原因にアプローチ。店舗・事務所・住居の空調管理におすすめです。</p><ul class="service-list"><li>エアコン内部の汚れ対策</li><li>ニオイ・カビの原因を清掃</li><li>定期的なメンテナンス相談</li></ul></div></article><article class="service-card"><div class="service-thumb thumb-water"></div><div class="service-body"><span class="label">水まわり</span><h3>厨房・浴室・トイレ清掃</h3><p>厨房の油汚れ、水アカ、黒ずみ、トイレの汚れなど、衛生面で気になる場所を丁寧に清掃します。</p><ul class="service-list"><li>厨房・レンジまわり清掃</li><li>浴室・洗面・トイレ清掃</li><li>水アカ・カビ・油汚れ対策</li></ul></div></article><article class="service-card"><div class="service-thumb thumb-special"></div><div class="service-body"><span class="label">専門対応</span><h3>カーペット・特殊清掃</h3><p>カーペットや通常清掃では対応が難しい汚れなど、現場の状況に合わせて清掃方法をご提案します。</p><ul class="service-list"><li>カーペット清掃</li><li>建物・店舗・住居の特殊清掃</li><li>現場状況に応じた清掃提案</li></ul></div></article></div></div></section>
+    <section class="section reasons" id="reasons"><div class="container"><div class="section-head"><span class="section-kicker">Reason</span><h2 class="section-title">イーライフが選ばれる理由</h2><p class="section-desc">清掃用品のリースとプロ清掃の両面から、建物や住まいの「きれい」を継続的に支えます。</p></div><div class="reason-layout"><div class="reason-visual"><div class="reason-mini-card"><strong>Since 2000</strong><span>地域に根ざした清掃サービス</span></div></div><div class="reason-list"><article class="reason-item"><div class="reason-number">01</div><div><h3>清掃用品から現場清掃まで一括相談</h3><p>マット・モップなどの日常的な清掃用品と、定期清掃・専門清掃をまとめて相談できます。</p></div></article><article class="reason-item"><div class="reason-number">02</div><div><h3>店舗・事務所・住居まで幅広く対応</h3><p>法人の清潔な職場づくりから、ご家庭のハウスクリーニングまで、用途や規模に合わせた清掃サービスをご提案します。</p></div></article><article class="reason-item"><div class="reason-number">03</div><div><h3>現場に合わせた丁寧な提案</h3><p>汚れの種類、素材、使用頻度、清掃の目的を確認し、必要な作業内容を分かりやすくご案内します。</p></div></article></div></div></div></section>
+    <section class="section comparison" id="comparison"><div class="container"><div class="section-head"><span class="section-kicker">Comparison</span><h2 class="section-title">こんな方におすすめです</h2><p class="section-desc">単発の清掃だけでなく、日常的な清潔維持まで考えたい方に向いています。</p></div><div class="comparison-box"><table class="comparison-table"><tbody><tr><th>店舗・オフィスの方</th><td>入口マットや床、トイレ、照明、共用部など、<span class="highlight">お客様や従業員の印象に関わる場所</span>を清潔に保ちたい場合におすすめです。</td></tr><tr><th>住居の清掃を頼みたい方</th><td>キッチン、浴室、トイレ、窓、床など、<span class="highlight">普段のお掃除では落としきれない汚れ</span>をプロに任せたい場合におすすめです。</td></tr><tr><th>清掃用具も見直したい方</th><td>マットやモップの購入・洗浄・交換管理を見直し、<span class="highlight">リースで衛生的に運用したい</span>場合におすすめです。</td></tr><tr><th>汚れがひどくて困っている方</th><td>厨房の油汚れ、カーペット汚れ、水まわりの黒ずみ、エアコン内部など、専門的な清掃が必要な場合もご相談ください。</td></tr></tbody></table></div></div></section>
+    <section class="section works" id="works"><div class="container"><div class="section-head"><span class="section-kicker">Operation Example</span><h2 class="section-title">対応例</h2><p class="section-desc">実際の写真は差し替え前提です。現場写真や作業前後の写真を入れると信頼感が高まります。</p></div><div class="works-grid"><article class="work-card"><div class="work-image work-01"></div><div class="work-body"><h3>店舗・事務所の定期清掃</h3><p>床、入口、共用部、トイレなどを清掃し、来店者・従業員にとって気持ちの良い空間を維持します。</p></div></article><article class="work-card"><div class="work-image work-02"></div><div class="work-body"><h3>厨房・水まわり清掃</h3><p>厨房の油汚れ、シンクまわり、トイレや洗面など、衛生管理が重要な場所を丁寧に清掃します。</p></div></article><article class="work-card"><div class="work-image work-03"></div><div class="work-body"><h3>エアコン清掃</h3><p>店舗・事務所・住居のエアコン内部にたまった汚れやニオイの原因を清掃します。</p></div></article></div></div></section>
+    <section class="section flow" id="flow"><div class="container"><div class="section-head"><span class="section-kicker">Flow</span><h2 class="section-title">ご相談からサービス開始までの流れ</h2><p class="section-desc">清掃用具のリースも、現場清掃も、まずはお困りごとをお聞かせください。</p></div><div class="flow-grid"><article class="flow-card"><div class="flow-icon">📞</div><h3>お問い合わせ</h3><p>お電話またはメールで、清掃したい場所・ご希望内容・対応エリアをお知らせください。</p></article><article class="flow-card"><div class="flow-icon">🔍</div><h3>内容確認・現場確認</h3><p>必要に応じて現場の状況を確認し、汚れの状態や必要な清掃範囲を整理します。</p></article><article class="flow-card"><div class="flow-icon">📝</div><h3>ご提案・お見積り</h3><p>清掃内容、リース内容、作業頻度、料金の目安を分かりやすくご案内します。</p></article><article class="flow-card"><div class="flow-icon">✨</div><h3>サービス開始</h3><p>ご納得いただいた内容で、清掃用品の設置・交換や現場清掃を実施します。</p></article></div></div></section>
+    <section class="section company" id="company"><div class="container"><div class="section-head"><span class="section-kicker">Company</span><h2 class="section-title">会社概要</h2><p class="section-desc">北名古屋市を拠点に、地域の店舗・事務所・住まいの「きれい」を支えています。</p></div><div class="company-layout"><aside class="company-card"><h3>清潔で、快適で、<br>安心できる空間づくりを。</h3><p>株式会社イーライフは、リースキン師勝中央店として、清掃用品のリースと各種清掃サービスを通じて、お客様の環境づくりをサポートします。</p><ul class="company-contact-list"><li>📍 北名古屋市井瀬木五反地68-3</li><li>☎ 0568-25-7071</li><li>🧹 建物・店舗・住居・特殊清掃まで対応</li></ul></aside><dl class="company-table"><div class="company-row"><dt>会社名</dt><dd>株式会社イーライフ［リースキン師勝中央店］</dd></div><div class="company-row"><dt>所在地</dt><dd>〒481-0014 愛知県北名古屋市井瀬木五反地68-3</dd></div><div class="company-row"><dt>代表番号</dt><dd>TEL. 0568-25-7071</dd></div><div class="company-row"><dt>設立</dt><dd>2000年4月1日</dd></div><div class="company-row"><dt>事業内容</dt><dd>マット・モップ・清掃用具のリース、店舗・事務所清掃、住居清掃、カーペット清掃、厨房・水まわり清掃、トイレ清掃、照明清掃、床清掃、エアコン清掃・メンテナンス、特殊清掃</dd></div></dl></div></div></section>
+    <section class="section faq" id="faq"><div class="container"><div class="section-head"><span class="section-kicker">FAQ</span><h2 class="section-title">よくある質問</h2><p class="section-desc">お問い合わせ前に気になりやすい内容をまとめました。</p></div><div class="faq-list"><details><summary>法人だけでなく、個人宅の清掃も相談できますか？</summary><p>はい、店舗・事務所などの法人向け清掃だけでなく、住居のハウスクリーニングもご相談いただけます。</p></details><details><summary>マットやモップのリースだけでも依頼できますか？</summary><p>はい、清掃用具のリースのみのご相談も可能です。</p></details><details><summary>店舗やオフィスの定期清掃はできますか？</summary><p>はい、店舗・事務所・施設などの清掃もご相談ください。</p></details><details><summary>エアコン清掃や水まわり清掃も依頼できますか？</summary><p>はい、エアコン清掃・メンテナンス、厨房、水まわり、トイレなどの清掃にも対応しています。</p></details></div></div></section>
+    <section class="contact" id="contact"><div class="container"><div class="contact-layout"><div><h2>清掃用品のリースも、<br>プロの清掃もお気軽にご相談ください。</h2><p>店舗・事務所・住居の清掃、マット・モップのリース、エアコンや水まわりの清掃まで、お困りごとに合わせてご案内します。</p><div class="contact-actions"><a class="btn btn-secondary" href="tel:0568257071">0568-25-7071 に電話</a><a class="btn btn-outline" href="mailto:info@example.com?subject=ホームページからのお問い合わせ">メールで問い合わせ</a></div></div><div class="contact-panel"><h3>ご相談時にお伝えいただきたいこと</h3><ul class="contact-panel-list"><li>✅ 清掃したい場所、または導入したい清掃用品</li><li>✅ 店舗・事務所・住居など建物の種類</li><li>✅ 汚れの状態や気になる箇所</li><li>✅ 希望時期、作業可能な曜日・時間帯</li><li>✅ 駐車スペースや搬入経路の有無</li></ul><div class="contact-note">※ GitHub Pages単体ではフォーム送信処理ができないため、このサンプルでは電話・メール導線にしています。</div></div></div></div></section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-grid"><div><div class="footer-brand"><span class="logo-mark">E</span>株式会社イーライフ</div><img src="/mnt/data/image(2).png" alt="株式会社イーライフの鬼キャラクター" class="footer-oni"><p>リースキン師勝中央店として、清掃用品のリースから建物・店舗・住居の清掃まで、清潔で快適な環境づくりをサポートします。</p><a class="btn footer-internal-btn" href="https://opifex.xsrv.jp/OpiKanri/login" target="_blank" rel="noopener noreferrer">社内用</a></div><div><h3>サービス</h3><ul class="footer-links"><li><a href="#services">清掃用具リース</a></li><li><a href="#services">店舗・オフィス清掃</a></li><li><a href="#services">住居清掃</a></li><li><a href="#services">エアコン清掃</a></li></ul></div><div><h3>サイトメニュー</h3><ul class="footer-links"><li><a href="#worries">お悩み</a></li><li><a href="#reasons">選ばれる理由</a></li><li><a href="#works">対応例</a></li><li><a href="#flow">流れ</a></li><li><a href="#company">会社概要</a></li></ul></div><div><h3>会社情報</h3><ul class="footer-links"><li>株式会社イーライフ</li><li>リースキン師勝中央店</li><li>〒481-0014</li><li>愛知県北名古屋市井瀬木五反地68-3</li><li>TEL. 0568-25-7071</li></ul></div></div><div class="footer-copy">© E-LIFE inc. All Rights Reserved.</div></div></footer>
+  <div class="fixed-sp-cta"><a class="btn btn-primary" href="tel:0568257071">電話する</a><a class="btn btn-secondary" href="#contact">無料相談</a></div>
+</body>
+</html>
